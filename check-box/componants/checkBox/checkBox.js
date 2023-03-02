@@ -12,8 +12,7 @@ function CheckBox({data, setOptions, options}){
     </Pressable>
     <Text>{item.value}</Text>
     </View>
-    )
-    }
+    )}
     </>
   )
 }
