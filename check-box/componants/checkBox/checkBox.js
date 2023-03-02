@@ -1,28 +1,14 @@
-import { useState } from "react";
-import { StyleSheet, View, Pressable, setOptions, Text } from "react-native";
+import { StyleSheet, View, Pressable, Text } from "react-native";
 
 function CheckBox({data, setOptions, options}){
-  const [press, setPress] = useState(0)
-  
-  function onCheckHandler(){
-    // if (press === 0){
-    //   const add = press + 1
-    //   setPress(add)
-    // } else if (press > 1){
-    //   setPress(0)
-    // }
-    
-  }
 
   return (
     <>
     {data.map((item)=> <View key={item.value} style={styles.container}>
-    <Pressable  onPress={()=> setOptions(item.value)}>
-      <View style={styles.checkBoxContanier}>
+    <Pressable style={styles.checkBoxContanier} onPress={()=> setOptions(item.value)}>
         <View style={styles.checkBoxInner}>
             <View style={ item.value === options ? styles.checkBoxCenterColour : styles.checkBoxCenter}></View>
         </View>
-      </View>
     </Pressable>
     <Text>{item.value}</Text>
     </View>
@@ -45,6 +31,7 @@ const styles = StyleSheet.create({
     opacity: 0.75
   },
   checkBoxContanier:{
+    flex: 1,
     width: 50,
     height: 50,
     justifyContent: 'center',
@@ -53,7 +40,7 @@ const styles = StyleSheet.create({
   checkBoxInner:{
     width: 40,
     height: 40,
-    borderRadius: 50,
+    borderRadius: 20,
     borderWidth: 1,
     borderColor: 'black',
     justifyContent: 'center',
@@ -62,9 +49,7 @@ const styles = StyleSheet.create({
   checkBoxCenter: {
     width: 30,
     height: 30,
-    borderRadius: 25,
-    // backgroundColor: 'grey',
-    // elevation: 9,
+    borderRadius: 20,
     borderWidth: 1,
     borderColor: 'black',
     justifyContent: 'center',
@@ -73,7 +58,7 @@ const styles = StyleSheet.create({
   checkBoxCenterColour: {
     width: 30,
     height: 30,
-    borderRadius: 25,
+    borderRadius: 20,
     backgroundColor: 'grey',
     elevation: 4,
   }
